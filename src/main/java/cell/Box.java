@@ -13,7 +13,7 @@ import java.util.Collections;
 import java.util.HashSet;
 
 /**
- * User: alpi
+ * User: alexeyk
  * Date: 01.12.13
  */
 public class Box implements Cell, Identifiable {

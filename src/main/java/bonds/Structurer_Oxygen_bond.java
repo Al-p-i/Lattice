@@ -1,10 +1,10 @@
 package bonds;
 
-import geometry.Geometry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import particles.Oxygen;
 import particles.Structurer;
+import utils.Geometry;
 import utils.Pair;
 
 /**

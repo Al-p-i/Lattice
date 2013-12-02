@@ -1,8 +1,8 @@
 package bonds;
 
-import geometry.Geometry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import utils.Geometry;
 import utils.IDGenerator;
 import utils.Identifiable;
 

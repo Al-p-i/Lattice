@@ -110,6 +110,7 @@ public class SquareLattice implements Lattice, Identifiable {
         return neighbours;
     }
 
+
     public int getNOfActiveBoxes() {
         return nOfActiveBoxes;
     }
