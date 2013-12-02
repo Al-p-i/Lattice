@@ -1,7 +1,7 @@
 package particles;
 
 /**
- * User: alexeyk
+ * User: alpi
  * Date: 26.11.13
  */
 public interface Particle {

@@ -6,10 +6,10 @@ import utils.IDGenerator;
 import utils.Identifiable;
 
 /**
- * User: alexeyk
+ * User: alpi
  * Date: 02.12.13
  */
-public class ConcreteParticle implements Particle, Identifiable {
+public abstract class ConcreteParticle implements Particle, Identifiable {
 
     private static final Logger log = LoggerFactory.getLogger(ConcreteParticle.class.getName());
 
@@ -24,8 +24,6 @@ public class ConcreteParticle implements Particle, Identifiable {
         this.x = x;
         this.y = y;
         this.z = z;
-
-        log.info(toString());
     }
 
     @Override
@@ -50,6 +48,6 @@ public class ConcreteParticle implements Particle, Identifiable {
 
     @Override
     public String toString() {
-        return "id=" + id;// + "[" + x + ", " + y + ", " + z + "]";
+        return "id=" + getID();// + "[" + x + ", " + y + ", " + z + "]";
     }
 }

@@ -6,7 +6,7 @@ import particles.Particle;
 import java.util.Collection;
 
 /**
- * User: alexeyk
+ * User: alpi
  * Date: 24.11.13
  */
 public interface Lattice {
