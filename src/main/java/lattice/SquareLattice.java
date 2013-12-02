@@ -104,6 +104,8 @@ public class SquareLattice implements Lattice, Identifiable {
         for (Box neighbourBox : getBox(particle).getNeighbours()) {
             if (neighbourBox != null)
                 neighbours.addAll(neighbourBox.getParticles());
+
+            neighbours.remove(particle);
         }
         return neighbours;
     }
