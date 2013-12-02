@@ -7,7 +7,7 @@ import utils.Geometry;
 import utils.Pair;
 
 /**
- * User: alexeyk
+ * User: alpi
  * Date: 02.12.13
  */
 public class Structurer_Structurer_bond extends ConcreteBond {

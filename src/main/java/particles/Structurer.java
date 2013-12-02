@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * User: alexeyk
+ * User: alpi
  * Date: 02.12.13
  */
 public class Structurer extends ConcreteParticle {
@@ -18,6 +18,6 @@ public class Structurer extends ConcreteParticle {
 
     @Override
     public String toString() {
-        return "structurer: " + super.toString();// + "[" + x + ", " + y + ", " + z + "]";
+        return "(structurer: " + super.toString() + ")";// + "[" + x + ", " + y + ", " + z + "]";
     }
 }

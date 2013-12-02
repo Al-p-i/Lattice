@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import particles.Particle;
 
 /**
- * User: alexeyk
+ * User: alpi
  * Date: 02.12.13
  */
 public class Geometry {

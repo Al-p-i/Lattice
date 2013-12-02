@@ -1,7 +1,6 @@
 import analyzer.NaiveBondFinder;
-import bonds.Modifier_Oxygen_bond;
-import particles.Modifier;
-import particles.Oxygen;
+import bonds.Structurer_Structurer_bond;
+import particles.Structurer;
 import utils.Parameters;
 import utils.Utils;
 
@@ -9,29 +8,30 @@ import java.util.Collection;
 import java.util.HashSet;
 
 /**
- * User: alexeyk
+ * User: alpi
  * Date: 02.12.13
  */
 public class Main {
     public static void main(String[] args) {
-        Collection<Modifier> modifiers = new HashSet<>();
-        for (int i = 0; i < 10000; i++) {
-            modifiers.add(new Modifier(
+        Collection<Structurer> structurers = new HashSet<>();
+        for (int i = 0; i < 2; i++) {
+            structurers.add(new Structurer(
                     Utils.getRandom().nextDouble() * Parameters.CUBE_DX * 1,
                     Utils.getRandom().nextDouble() * Parameters.CUBE_DY * 1,
                     Utils.getRandom().nextDouble() * Parameters.CUBE_DZ * 1));
         }
 
-        Collection<Oxygen> oxygens = new HashSet<>();
-        for (int i = 0; i < 10000; i++) {
-            oxygens.add(new Oxygen(
-                    Utils.getRandom().nextDouble() * Parameters.CUBE_DX * 1,
-                    Utils.getRandom().nextDouble() * Parameters.CUBE_DY * 1,
-                    Utils.getRandom().nextDouble() * Parameters.CUBE_DZ * 1));
-        }
+//        Collection<Oxygen> oxygens = new HashSet<>();
+//        for (int i = 0; i < 10000; i++) {
+//            oxygens.add(new Oxygen(
+//                    Utils.getRandom().nextDouble() * Parameters.CUBE_DX * 1,
+//                    Utils.getRandom().nextDouble() * Parameters.CUBE_DY * 1,
+//                    Utils.getRandom().nextDouble() * Parameters.CUBE_DZ * 1));
+//        }
+
         NaiveBondFinder naiveBondFinder = new NaiveBondFinder();
 
-        Collection<Modifier_Oxygen_bond> bonds = naiveBondFinder.find_M_O_bonds(modifiers, oxygens);
+        Collection<Structurer_Structurer_bond> bonds = naiveBondFinder.find_S_S_bonds(structurers);
 
         System.out.println(bonds);
         System.out.println("bonds number = " + bonds.size());

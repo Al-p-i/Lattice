@@ -8,7 +8,7 @@ import utils.Geometry;
 import utils.Pair;
 
 /**
- * User: alexeyk
+ * User: alpi
  * Date: 02.12.13
  */
 public class Modifier_Oxygen_bond extends ConcreteBond {

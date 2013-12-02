@@ -7,7 +7,7 @@ import utils.IDGenerator;
 import utils.Identifiable;
 
 /**
- * User: alexeyk
+ * User: alpi
  * Date: 02.12.13
  */
 public abstract class ConcreteBond implements Bond, Identifiable {
@@ -27,5 +27,10 @@ public abstract class ConcreteBond implements Bond, Identifiable {
     @Override
     public double getLength() {
         return Geometry.distance(getPair().getObj1(), getPair().getObj2());
+    }
+
+    @Override
+    public String toString() {
+        return getPair().getObj1() + "--" + getPair().getObj2();
     }
 }

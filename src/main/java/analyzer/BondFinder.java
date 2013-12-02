@@ -11,7 +11,7 @@ import particles.Structurer;
 import java.util.Collection;
 
 /**
- * User: alexeyk
+ * User: alpi
  * Date: 02.12.13
  */
 public interface BondFinder {
@@ -22,7 +22,7 @@ public interface BondFinder {
     Collection<Structurer_Structurer_bond> find_S_S_bonds(
             @NotNull Collection<Structurer> structurers);
 
-    Collection<Structurer_Oxygen_bond> find_S_U_bonds(
+    Collection<Structurer_Oxygen_bond> find_S_O_bonds(
             @NotNull Collection<Structurer> structurers,
             @NotNull Collection<Oxygen> oxygens);
 }

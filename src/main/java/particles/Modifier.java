@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * User: alexeyk
+ * User: alpi
  * Date: 02.12.13
  */
 public class Modifier extends ConcreteParticle {
@@ -19,6 +19,6 @@ public class Modifier extends ConcreteParticle {
 
     @Override
     public String toString() {
-        return "modifier: " + super.toString();// + "[" + x + ", " + y + ", " + z + "]";
+        return "(modifier: " + super.toString() + ")";// + "[" + x + ", " + y + ", " + z + "]";
     }
 }
