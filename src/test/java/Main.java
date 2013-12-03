@@ -1,5 +1,9 @@
 import analyzer.NaiveBondFinder;
+import bonds.Bond;
 import bonds.Structurer_Structurer_bond;
+import graph.PolimerizationGraph;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import particles.Structurer;
 import utils.Parameters;
 import utils.Utils;
@@ -12,9 +16,11 @@ import java.util.HashSet;
  * Date: 02.12.13
  */
 public class Main {
+    private static final Logger log = LoggerFactory.getLogger(Main.class.getName());
+
     public static void main(String[] args) {
         Collection<Structurer> structurers = new HashSet<>();
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 10_000_000; i++) {
             structurers.add(new Structurer(
                     Utils.getRandom().nextDouble() * Parameters.CUBE_DX * 1,
                     Utils.getRandom().nextDouble() * Parameters.CUBE_DY * 1,
@@ -31,10 +37,20 @@ public class Main {
 
         NaiveBondFinder naiveBondFinder = new NaiveBondFinder();
 
+        log.info("bond finding started");
         Collection<Structurer_Structurer_bond> bonds = naiveBondFinder.find_S_S_bonds(structurers);
+        log.info(bonds.size() + " bonds found");
 
-        System.out.println(bonds);
-        System.out.println("bonds number = " + bonds.size());
+        log.info("create graph");
+        PolimerizationGraph polimerizationGraph = new PolimerizationGraph();
+        for (Bond bond : bonds) {
+            polimerizationGraph.addBond(bond);
+        }
+        log.info("graph created");
+
+
+//        for(Particle particle: polimerizationGraph.graph.vertexSet())
+//            System.out.println(polimerizationGraph.graph.degreeOf(particle));
 //        int dxGrid = 100;
 //        int dyGrid = 100;
 //        int dzGrid = 100;

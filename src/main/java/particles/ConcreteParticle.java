@@ -47,6 +47,23 @@ public abstract class ConcreteParticle implements Particle, Identifiable {
     }
 
     @Override
+    public final boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ConcreteParticle that = (ConcreteParticle) o;
+
+        if (id != that.id) return false;
+
+        return true;
+    }
+
+    @Override
+    public final int hashCode() {
+        return id;
+    }
+
+    @Override
     public String toString() {
         return "id=" + getID();// + "[" + x + ", " + y + ", " + z + "]";
     }

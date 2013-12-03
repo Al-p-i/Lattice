@@ -6,7 +6,6 @@ import bonds.Structurer_Oxygen_bond;
 import bonds.Structurer_Structurer_bond;
 import lattice.Lattice;
 import lattice.SquareLattice;
-import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import particles.Modifier;
@@ -39,7 +38,7 @@ public class NaiveBondFinder implements BondFinder, Identifiable {
 
 
     @Override
-    public Collection<Modifier_Oxygen_bond> find_M_O_bonds(@NotNull Collection<Modifier> modifiers, @NotNull Collection<Oxygen> oxygens) {
+    public Collection<Modifier_Oxygen_bond> find_M_O_bonds(Collection<Modifier> modifiers, Collection<Oxygen> oxygens) {
         HashSet<Modifier_Oxygen_bond> bonds = new HashSet<>();
 
         int latticeDx = (int) Math.ceil(Parameters.CUBE_DX / Modifier_Oxygen_bond.MAX_BOND_DISTANCE);
@@ -66,7 +65,7 @@ public class NaiveBondFinder implements BondFinder, Identifiable {
     }
 
     @Override
-    public Collection<Structurer_Structurer_bond> find_S_S_bonds(@NotNull Collection<Structurer> structurers) {
+    public Collection<Structurer_Structurer_bond> find_S_S_bonds(Collection<Structurer> structurers) {
         TreeSet<Structurer_Structurer_bond> bonds = new TreeSet<>(Bond.idParticleComparator);
 
         int latticeDx = (int) Math.ceil(Parameters.CUBE_DX / Modifier_Oxygen_bond.MAX_BOND_DISTANCE);
@@ -93,7 +92,7 @@ public class NaiveBondFinder implements BondFinder, Identifiable {
     }
 
     @Override
-    public Collection<Structurer_Oxygen_bond> find_S_O_bonds(@NotNull Collection<Structurer> structurers, @NotNull Collection<Oxygen> oxygens) {
+    public Collection<Structurer_Oxygen_bond> find_S_O_bonds(Collection<Structurer> structurers, Collection<Oxygen> oxygens) {
         HashSet<Structurer_Oxygen_bond> bonds = new HashSet<>();
 
         int latticeDx = (int) Math.ceil(Parameters.CUBE_DX / Modifier_Oxygen_bond.MAX_BOND_DISTANCE);
