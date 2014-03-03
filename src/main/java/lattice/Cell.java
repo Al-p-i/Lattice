@@ -1,4 +1,4 @@
-package cell;
+package lattice;
 
 import particles.Particle;
 

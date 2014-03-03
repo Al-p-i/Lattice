@@ -19,8 +19,9 @@ public class Main {
     private static final Logger log = LoggerFactory.getLogger(Main.class.getName());
 
     public static void main(String[] args) {
+        //===== создаем частицы ==========
         Collection<Structurer> structurers = new HashSet<>();
-        for (int i = 0; i < 10_000_000; i++) {
+        for (int i = 0; i < 1_000_000; i++) {
             structurers.add(new Structurer(
                     Utils.getRandom().nextDouble() * Parameters.CUBE_DX * 1,
                     Utils.getRandom().nextDouble() * Parameters.CUBE_DY * 1,
@@ -35,6 +36,7 @@ public class Main {
 //                    Utils.getRandom().nextDouble() * Parameters.CUBE_DZ * 1));
 //        }
 
+        //===== ищем связи ==========
         NaiveBondFinder naiveBondFinder = new NaiveBondFinder();
 
         log.info("bond finding started");

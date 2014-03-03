@@ -1,6 +1,5 @@
 package lattice;
 
-import cell.Box;
 import particles.Particle;
 
 import java.util.Collection;

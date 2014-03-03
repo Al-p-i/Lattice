@@ -1,14 +1,12 @@
 package analyzer;
 
 import bonds.Bond;
-import bonds.Modifier_Oxygen_bond;
 import bonds.Structurer_Oxygen_bond;
 import bonds.Structurer_Structurer_bond;
 import lattice.Lattice;
 import lattice.SquareLattice;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import particles.Modifier;
 import particles.Oxygen;
 import particles.Particle;
 import particles.Structurer;
@@ -37,41 +35,15 @@ public class NaiveBondFinder implements BondFinder, Identifiable {
     }
 
 
-    @Override
-    public Collection<Modifier_Oxygen_bond> find_M_O_bonds(Collection<Modifier> modifiers, Collection<Oxygen> oxygens) {
-        HashSet<Modifier_Oxygen_bond> bonds = new HashSet<>();
-
-        int latticeDx = (int) Math.ceil(Parameters.CUBE_DX / Modifier_Oxygen_bond.MAX_BOND_DISTANCE);
-        int latticeDy = (int) Math.ceil(Parameters.CUBE_DY / Modifier_Oxygen_bond.MAX_BOND_DISTANCE);
-        int latticeDz = (int) Math.ceil(Parameters.CUBE_DZ / Modifier_Oxygen_bond.MAX_BOND_DISTANCE);
-        Lattice lattice = new SquareLattice(latticeDx, latticeDy, latticeDz, Modifier_Oxygen_bond.MAX_BOND_DISTANCE);
-
-        Collection<Particle> particlesForLattice = new HashSet<>();
-
-        particlesForLattice.addAll(modifiers);
-
-        lattice.addParticles(particlesForLattice);
-
-        for (Oxygen oxygen : oxygens) {
-            for (Particle particle : lattice.getNeighbours(oxygen)) {
-                Modifier modifier = (Modifier) particle;
-                if (Modifier_Oxygen_bond.isBonded(modifier, oxygen)) {
-                    bonds.add(new Modifier_Oxygen_bond(modifier, oxygen));
-                }
-            }
-        }
-
-        return bonds;
-    }
 
     @Override
     public Collection<Structurer_Structurer_bond> find_S_S_bonds(Collection<Structurer> structurers) {
         TreeSet<Structurer_Structurer_bond> bonds = new TreeSet<>(Bond.idParticleComparator);
 
-        int latticeDx = (int) Math.ceil(Parameters.CUBE_DX / Modifier_Oxygen_bond.MAX_BOND_DISTANCE);
-        int latticeDy = (int) Math.ceil(Parameters.CUBE_DY / Modifier_Oxygen_bond.MAX_BOND_DISTANCE);
-        int latticeDz = (int) Math.ceil(Parameters.CUBE_DZ / Modifier_Oxygen_bond.MAX_BOND_DISTANCE);
-        Lattice lattice = new SquareLattice(latticeDx, latticeDy, latticeDz, Modifier_Oxygen_bond.MAX_BOND_DISTANCE);
+        int latticeDx = (int) Math.ceil(Parameters.CUBE_DX / Structurer_Structurer_bond.MAX_BOND_DISTANCE);
+        int latticeDy = (int) Math.ceil(Parameters.CUBE_DY / Structurer_Structurer_bond.MAX_BOND_DISTANCE);
+        int latticeDz = (int) Math.ceil(Parameters.CUBE_DZ / Structurer_Structurer_bond.MAX_BOND_DISTANCE);
+        Lattice lattice = new SquareLattice(latticeDx, latticeDy, latticeDz, Structurer_Structurer_bond.MAX_BOND_DISTANCE);
 
         Collection<Particle> particlesForLattice = new HashSet<>();
 
@@ -95,10 +67,10 @@ public class NaiveBondFinder implements BondFinder, Identifiable {
     public Collection<Structurer_Oxygen_bond> find_S_O_bonds(Collection<Structurer> structurers, Collection<Oxygen> oxygens) {
         HashSet<Structurer_Oxygen_bond> bonds = new HashSet<>();
 
-        int latticeDx = (int) Math.ceil(Parameters.CUBE_DX / Modifier_Oxygen_bond.MAX_BOND_DISTANCE);
-        int latticeDy = (int) Math.ceil(Parameters.CUBE_DY / Modifier_Oxygen_bond.MAX_BOND_DISTANCE);
-        int latticeDz = (int) Math.ceil(Parameters.CUBE_DZ / Modifier_Oxygen_bond.MAX_BOND_DISTANCE);
-        Lattice lattice = new SquareLattice(latticeDx, latticeDy, latticeDz, Modifier_Oxygen_bond.MAX_BOND_DISTANCE);
+        int latticeDx = (int) Math.ceil(Parameters.CUBE_DX / Structurer_Oxygen_bond.MAX_BOND_DISTANCE);
+        int latticeDy = (int) Math.ceil(Parameters.CUBE_DY / Structurer_Oxygen_bond.MAX_BOND_DISTANCE);
+        int latticeDz = (int) Math.ceil(Parameters.CUBE_DZ / Structurer_Oxygen_bond.MAX_BOND_DISTANCE);
+        Lattice lattice = new SquareLattice(latticeDx, latticeDy, latticeDz, Structurer_Oxygen_bond.MAX_BOND_DISTANCE);
 
         Collection<Particle> particlesForLattice = new HashSet<>();
 
