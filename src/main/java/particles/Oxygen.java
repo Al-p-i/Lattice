@@ -11,8 +11,8 @@ public class Oxygen extends ConcreteParticle {
 
     private static final Logger log = LoggerFactory.getLogger(Oxygen.class.getName());
 
-    public Oxygen(double x, double y, double z) {
-        super(x, y, z);
+    public Oxygen(ParticleType particleType, double x, double y, double z) {
+        super(particleType, x, y, z);
     }
 
     @Override

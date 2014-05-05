@@ -12,8 +12,8 @@ public class Modifier extends ConcreteParticle {
     private static final Logger log = LoggerFactory.getLogger(Modifier.class.getName());
 
 
-    public Modifier(double x, double y, double z) {
-        super(x, y, z);
+    public Modifier(ParticleType particleType, double x, double y, double z) {
+        super(particleType, x, y, z);
         log.info(toString());
     }
 

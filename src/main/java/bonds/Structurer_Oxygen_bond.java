@@ -15,6 +15,7 @@ public class Structurer_Oxygen_bond extends ConcreteBond {
     private static final Logger log = LoggerFactory.getLogger(Structurer_Oxygen_bond.class.getName());
 
     private Structurer structurer;
+
     private Oxygen oxygen;
 
     public Structurer_Oxygen_bond(Structurer structurer, Oxygen oxygen) {
@@ -24,6 +25,14 @@ public class Structurer_Oxygen_bond extends ConcreteBond {
 
     public Structurer_Oxygen_bond(Oxygen oxygen, Structurer structurer) {
         this(structurer, oxygen);
+    }
+
+    public Structurer getStructurer() {
+        return structurer;
+    }
+
+    public Oxygen getOxygen() {
+        return oxygen;
     }
 
     @Override

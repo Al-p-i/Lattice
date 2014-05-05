@@ -19,8 +19,10 @@ public abstract class ConcreteParticle implements Particle, Identifiable {
     private double x;
     private double y;
     private double z;
+    private ParticleType particleType;
 
-    public ConcreteParticle(double x, double y, double z) {
+    public ConcreteParticle(ParticleType particleType, double x, double y, double z) {
+        this.particleType = particleType;
         this.x = x;
         this.y = y;
         this.z = z;
@@ -53,9 +55,18 @@ public abstract class ConcreteParticle implements Particle, Identifiable {
 
         ConcreteParticle that = (ConcreteParticle) o;
 
-        if (id != that.id) return false;
+        return id == that.id;
 
-        return true;
+    }
+
+    @Override
+    public String getName() {
+        return particleType.getName();
+    }
+
+    @Override
+    public byte getValency() {
+        return particleType.getValency();
     }
 
     @Override

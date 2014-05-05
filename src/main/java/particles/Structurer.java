@@ -11,8 +11,9 @@ public class Structurer extends ConcreteParticle {
 
     private static final Logger log = LoggerFactory.getLogger(Structurer.class.getName());
 
-    public Structurer(double x, double y, double z) {
-        super(x, y, z);
+
+    public Structurer(ParticleType particleType, double x, double y, double z) {
+        super(particleType, x, y, z);
         log.info(toString());
     }
 
