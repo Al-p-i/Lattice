@@ -27,11 +27,11 @@ public class Structurer_Structurer_bond extends ConcreteBond {
         return new Pair<>(first, second);
     }
 
-    public static final double MAX_BOND_DISTANCE = 10;
-    public static final double MIN_BOND_DISTANCE = 0;
-
     public static boolean isBonded(Structurer first, Structurer second) {
-        return Geometry.distance(first, second) < MAX_BOND_DISTANCE &&
-                Geometry.distance(first, second) > MIN_BOND_DISTANCE;
+        double distance = Geometry.distance(first, second);
+        return distance < first.getMaxBondDistance() &&
+                distance < second.getMaxBondDistance() &&
+                distance > first.getMinBondDistance() &&
+                distance > second.getMinBondDistance();
     }
 }

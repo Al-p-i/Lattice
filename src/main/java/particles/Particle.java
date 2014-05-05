@@ -9,6 +9,10 @@ import utils.Identifiable;
 public interface Particle extends Identifiable {
     String getName();
 
+    double getMinBondDistance();
+
+    double getMaxBondDistance();
+
     byte getValency();
 
     double getX();

@@ -70,6 +70,16 @@ public abstract class ConcreteParticle implements Particle, Identifiable {
     }
 
     @Override
+    public double getMinBondDistance() {
+        return particleType.getMinBondDistance();
+    }
+
+    @Override
+    public double getMaxBondDistance() {
+        return particleType.getMaxBoundDistance();
+    }
+
+    @Override
     public final int hashCode() {
         return id;
     }

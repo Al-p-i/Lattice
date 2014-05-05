@@ -40,11 +40,11 @@ public class Structurer_Oxygen_bond extends ConcreteBond {
         return new Pair<>(structurer, oxygen);
     }
 
-    public static final double MAX_BOND_DISTANCE = 10;
-    public static final double MIN_BOND_DISTANCE = 0;
-
-    public static boolean isBonded(Structurer structurer, Oxygen oxygen) {
-        return Geometry.distance(structurer, oxygen) < MAX_BOND_DISTANCE &&
-                Geometry.distance(structurer, oxygen) > MIN_BOND_DISTANCE;
+    public static boolean isBonded(Structurer first, Oxygen second) {
+        double distance = Geometry.distance(first, second);
+        return distance < first.getMaxBondDistance() &&
+                distance < second.getMaxBondDistance() &&
+                distance > first.getMinBondDistance() &&
+                distance > second.getMinBondDistance();
     }
 }

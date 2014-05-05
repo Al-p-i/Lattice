@@ -18,10 +18,14 @@ public class ParticleType implements Identifiable {
 
     private final String name;
     private final byte valency;
+    private final double minBondDistance;
+    private final double maxBoundDistance;
 
-    public ParticleType(String name, byte valency) {
+    public ParticleType(String name, byte valency, double minBondDistance, double maxBoundDistance) {
         this.name = name;
         this.valency = valency;
+        this.minBondDistance = minBondDistance;
+        this.maxBoundDistance = maxBoundDistance;
     }
 
     @Override
@@ -35,5 +39,13 @@ public class ParticleType implements Identifiable {
 
     public String getName() {
         return name;
+    }
+
+    public double getMinBondDistance() {
+        return minBondDistance;
+    }
+
+    public double getMaxBoundDistance() {
+        return maxBoundDistance;
     }
 }

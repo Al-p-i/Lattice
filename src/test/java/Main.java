@@ -4,6 +4,7 @@ import bonds.Structurer_Structurer_bond;
 import graph.PolimerizationGraph;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import particles.ParticleType;
 import particles.Structurer;
 import utils.Parameters;
 import utils.Utils;
@@ -21,11 +22,13 @@ public class Main {
     public static void main(String[] args) {
         //===== создаем частицы ==========
         Collection<Structurer> structurers = new HashSet<>();
-        for (int i = 0; i < 1_000_000; i++) {
+        ParticleType particleType = new ParticleType("TestStructurer", (byte) 4, 0., 100);
+        for (int i = 0; i < 1_000; i++) {
             structurers.add(new Structurer(
-                    Utils.getRandom().nextDouble() * Parameters.CUBE_DX * 1,
-                    Utils.getRandom().nextDouble() * Parameters.CUBE_DY * 1,
-                    Utils.getRandom().nextDouble() * Parameters.CUBE_DZ * 1));
+                    particleType,
+                    Utils.getRandom().nextDouble() * Parameters.get().getCUBE_DX() * 1,
+                    Utils.getRandom().nextDouble() * Parameters.get().getCUBE_DY() * 1,
+                    Utils.getRandom().nextDouble() * Parameters.get().getCUBE_DZ() * 1));
         }
 
 //        Collection<Oxygen> oxygens = new HashSet<>();
@@ -37,7 +40,7 @@ public class Main {
 //        }
 
         //===== ищем связи ==========
-        NaiveBondFinder naiveBondFinder = new NaiveBondFinder();
+        NaiveBondFinder naiveBondFinder = new NaiveBondFinder(100);
 
         log.info("bond finding started");
         Collection<Structurer_Structurer_bond> bonds = naiveBondFinder.find_S_S_bonds(structurers);
