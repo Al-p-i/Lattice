@@ -10,6 +10,7 @@ import utils.Pair;
 /**
  * User: alpi
  * Date: 02.12.13
+ * Bond between Oxigen and Structurer particles
  */
 public class Structurer_Oxygen_bond extends ConcreteBond {
     private static final Logger log = LoggerFactory.getLogger(Structurer_Oxygen_bond.class.getName());

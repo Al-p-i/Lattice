@@ -10,6 +10,7 @@ import java.util.Collection;
 /**
  * User: alpi
  * Date: 02.12.13
+ * NaiveBondFinder provide interface for bond finding.
  */
 public interface BondFinder {
 

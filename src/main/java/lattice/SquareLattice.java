@@ -13,6 +13,7 @@ import java.util.HashSet;
 /**
  * User: alpi
  * Date: 01.12.13
+ *
  */
 public class SquareLattice implements Lattice, Identifiable {
 

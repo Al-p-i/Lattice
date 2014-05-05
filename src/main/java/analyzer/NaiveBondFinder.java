@@ -22,6 +22,8 @@ import java.util.TreeSet;
 /**
  * User: alpi
  * Date: 02.12.13
+ * NaiveBondFinder provide interface for efficient bond finding.
+ * It uses Schegel Algorithm for all-neighbour-within-distance finding based on lattice.
  */
 public class NaiveBondFinder implements BondFinder, Identifiable {
 
@@ -29,6 +31,12 @@ public class NaiveBondFinder implements BondFinder, Identifiable {
 
     private static final IDGenerator idGenerator = new IDGenerator();
     private final int id = idGenerator.nextID();
+
+    /**
+     * Lattice is used for Schlegel all-neighbour-within-distance finding algorithm
+     * Lattice period must not be less than maxBondLength. If it is too large, the algorithm degrade in speed.
+     * The bond finder has exactly one lattice. To create finder
+     */
     private Lattice lattice;
 
     @Override
@@ -36,13 +44,27 @@ public class NaiveBondFinder implements BondFinder, Identifiable {
         return id;
     }
 
-    public NaiveBondFinder(double maxBondDistance) {
-        int latticeDx = (int) Math.ceil(Parameters.get().getCUBE_DX() / maxBondDistance);
-        int latticeDy = (int) Math.ceil(Parameters.get().getCUBE_DY() / maxBondDistance);
-        int latticeDz = (int) Math.ceil(Parameters.get().getCUBE_DZ() / maxBondDistance);
-        this.lattice = new SquareLattice(latticeDx, latticeDy, latticeDz, maxBondDistance);
+    /**
+     * NaiveBondFinder provide interface for efficient bond finding.
+     * It uses Schegel Algorithm for all-neighbour-within-distance finding based on lattice.
+     * Lattice period must not be less than maxBondLength. If it is too large, the algorithm degrade in speed.
+     * The bond finder has exactly one lattice. To create finder
+     *
+     * @param maxBondLength maximum expected bond distance
+     */
+    public NaiveBondFinder(double maxBondLength) {
+        int latticeDx = (int) Math.ceil(Parameters.get().getCUBE_DX() / maxBondLength);
+        int latticeDy = (int) Math.ceil(Parameters.get().getCUBE_DY() / maxBondLength);
+        int latticeDz = (int) Math.ceil(Parameters.get().getCUBE_DZ() / maxBondLength);
+        this.lattice = new SquareLattice(latticeDx, latticeDy, latticeDz, maxBondLength);
     }
 
+    /**
+     * Finds all bonds that are possible according to bond length (assume no valency)
+     *
+     * @param structurers collection of structurer particles
+     * @return collection of possible bonds
+     */
     @Override
     public Collection<Structurer_Structurer_bond> find_S_S_bonds(Collection<Structurer> structurers) {
         TreeSet<Structurer_Structurer_bond> bonds = new TreeSet<>(Bond.idParticleComparator);
@@ -64,6 +86,13 @@ public class NaiveBondFinder implements BondFinder, Identifiable {
         return bonds;
     }
 
+    /**
+     * Finds all bonds that are possible according to bond length (assume no valency)
+     *
+     * @param structurers collection of structurer particles
+     * @param oxygens     collection of oxygen particles
+     * @return collection of possible bonds
+     */
     @Override
     public Collection<Structurer_Oxygen_bond> find_S_O_bonds(Collection<Structurer> structurers, Collection<Oxygen> oxygens) {
         HashSet<Structurer_Oxygen_bond> bonds = new HashSet<>();

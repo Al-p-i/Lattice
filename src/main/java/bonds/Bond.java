@@ -9,6 +9,7 @@ import java.util.Comparator;
 /**
  * User: alpi
  * Date: 02.12.13
+ * Chemical bond
  */
 public interface Bond {
     Pair<? extends Particle, ? extends Particle> getPair();

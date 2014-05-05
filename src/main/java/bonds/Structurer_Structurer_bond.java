@@ -9,6 +9,7 @@ import utils.Pair;
 /**
  * User: alpi
  * Date: 02.12.13
+ * Bond between two Structurer particles
  */
 public class Structurer_Structurer_bond extends ConcreteBond {
 
