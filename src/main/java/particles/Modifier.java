@@ -19,6 +19,6 @@ public class Modifier extends ConcreteParticle {
 
     @Override
     public String toString() {
-        return "(modifier: " + super.toString() + ")";// + "[" + x + ", " + y + ", " + z + "]";
+        return "(mod: " + super.toString() + ")";// + "[" + x + ", " + y + ", " + z + "]";
     }
 }

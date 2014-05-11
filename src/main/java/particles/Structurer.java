@@ -19,6 +19,6 @@ public class Structurer extends ConcreteParticle {
 
     @Override
     public String toString() {
-        return "(structurer: " + super.toString() + ")";// + "[" + x + ", " + y + ", " + z + "]";
+        return "(str: " + super.toString() + ")";// + "[" + x + ", " + y + ", " + z + "]";
     }
 }

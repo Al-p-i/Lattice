@@ -17,6 +17,6 @@ public class Oxygen extends ConcreteParticle {
 
     @Override
     public String toString() {
-        return "(oxygen: " + super.toString() + ")";// + "[" + x + ", " + y + ", " + z + "]";
+        return "(oxy: " + super.toString() + ")";// + "[" + x + ", " + y + ", " + z + "]";
     }
 }

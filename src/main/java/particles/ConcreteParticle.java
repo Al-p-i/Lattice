@@ -86,6 +86,6 @@ public abstract class ConcreteParticle implements Particle, Identifiable {
 
     @Override
     public String toString() {
-        return "id=" + getID();// + "[" + x + ", " + y + ", " + z + "]";
+        return String.valueOf(getID());// + "[" + x + ", " + y + ", " + z + "]";
     }
 }
