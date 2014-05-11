@@ -37,6 +37,26 @@ public class Structurer_Oxygen_bond extends ConcreteBond {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Structurer_Oxygen_bond that = (Structurer_Oxygen_bond) o;
+
+        if (!oxygen.equals(that.oxygen)) return false;
+        if (!structurer.equals(that.structurer)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = structurer.hashCode();
+        result = 31 * result + oxygen.hashCode();
+        return result;
+    }
+
+    @Override
     public Pair<Structurer, Oxygen> getPair() {
         return new Pair<>(structurer, oxygen);
     }
@@ -47,5 +67,15 @@ public class Structurer_Oxygen_bond extends ConcreteBond {
                 distance < second.getMaxBondDistance() &&
                 distance > first.getMinBondDistance() &&
                 distance > second.getMinBondDistance();
+    }
+
+    /**
+     * has no affect
+     *
+     * @return this
+     */
+    @Override
+    public Structurer_Oxygen_bond canonical() {
+        return this;
     }
 }

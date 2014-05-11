@@ -1,16 +1,15 @@
 import analyzer.NaiveBondFinder;
 import bonds.Bond;
+import bonds.Structurer_Oxygen_bond;
 import bonds.Structurer_Structurer_bond;
-import graph.PolimerizationGraph;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import particles.Oxygen;
 import particles.ParticleType;
 import particles.Structurer;
-import utils.Parameters;
-import utils.Utils;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 
 /**
  * User: alpi
@@ -20,6 +19,10 @@ public class Main {
     private static final Logger log = LoggerFactory.getLogger(Main.class.getName());
 
     public static void main(String[] args) {
+//        closeStructurers();
+        C2O4();
+
+        /*
         //===== создаем частицы ==========
         Collection<Structurer> structurers = new HashSet<>();
         ParticleType particleType = new ParticleType("TestStructurer", (byte) 4, 0., 100);
@@ -82,5 +85,42 @@ public class Main {
 //            System.out.println(lattice.getNeighbours(particle));
 //        }
 //        System.out.println("nOfActiveBoxes " + ((SquareLattice) lattice).getNOfActiveBoxes());
+*/
+    }
+
+    static void closeStructurers() {
+        Collection<Structurer> structurers = new ArrayList<>();
+        ParticleType particleType = new ParticleType("Structurer", (byte) 4, 0, 5);
+        structurers.add(new Structurer(particleType, 50, 50, 50));
+        structurers.add(new Structurer(particleType, 51, 50, 50));
+        structurers.add(new Structurer(particleType, 52, 50, 50));
+        structurers.add(new Structurer(particleType, 53, 50, 50));
+        structurers.add(new Structurer(particleType, 54, 50, 50));
+        NaiveBondFinder naiveBondFinder = new NaiveBondFinder(5);
+        Collection<Structurer_Structurer_bond> S_S_bonds = naiveBondFinder.find_S_S_bonds(structurers);
+        for (Bond bond : S_S_bonds) {
+            System.out.println(bond);
+        }
+        assert S_S_bonds.size() == 10;
+        Collection<Structurer_Oxygen_bond> S_O_bonds = naiveBondFinder.find_S_O_bonds(structurers, new ArrayList<Oxygen>());
+        assert S_O_bonds.size() == 0;
+    }
+
+    static void C2O4() {
+        Collection<Structurer> structurers = new ArrayList<>();
+        Collection<Oxygen> oxygens = new ArrayList<>();
+        ParticleType strType = new ParticleType("Structurer", (byte) 4, 0, 5);
+        ParticleType oxType = new ParticleType("Oxygen", (byte) 4, 0, 4);
+        structurers.add(new Structurer(strType, 50, 51, 50));
+        structurers.add(new Structurer(strType, 50, 49, 50));
+        oxygens.add(new Oxygen(oxType, 49, 50, 50));
+        oxygens.add(new Oxygen(oxType, 48, 50, 50));
+        oxygens.add(new Oxygen(oxType, 51, 50, 50));
+        oxygens.add(new Oxygen(oxType, 52, 50, 50));
+        NaiveBondFinder naiveBondFinder = new NaiveBondFinder(5);
+        Collection<Structurer_Oxygen_bond> bonds = naiveBondFinder.find_S_O_bonds(structurers, oxygens);
+        for (Bond bond : bonds) {
+            System.out.println(bond);
+        }
     }
 }

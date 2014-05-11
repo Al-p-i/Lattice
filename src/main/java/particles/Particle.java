@@ -1,6 +1,7 @@
 package particles;
 
 import utils.Identifiable;
+import utils.XYZComparator;
 
 /**
  * User: alpi
@@ -20,4 +21,6 @@ public interface Particle extends Identifiable {
     double getY();
 
     double getZ();
+
+    public static final XYZComparator xyzComparator = new XYZComparator();
 }

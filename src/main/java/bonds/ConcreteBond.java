@@ -17,6 +17,10 @@ public abstract class ConcreteBond implements Bond, Identifiable {
     private static final IDGenerator idGenerator = new IDGenerator();
     private final int id = idGenerator.nextID();
 
+    /**
+     * return bond in some predefined form
+     */
+    public abstract ConcreteBond canonical();
 
     @Override
     public int getID() {
