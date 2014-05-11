@@ -16,6 +16,12 @@ public interface Bond {
 
     double getLength();
 
+
+    /**
+     * return bond in some predefined form
+     */
+    ConcreteBond canonical();
+
     public static Comparator<Bond> idParticleComparator = new Comparator<Bond>() {
         @Override
         public int compare(Bond b1, Bond b2) {
